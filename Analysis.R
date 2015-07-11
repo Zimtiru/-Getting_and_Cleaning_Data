@@ -57,7 +57,6 @@ names(Data)<-gsub("Mag", "Magnitude", names(Data))
 names(Data)<-gsub("BodyBody", "Body", names(Data))
 
 #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-#5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 Data_aggr<-aggregate(. ~subject + activity, Data, mean)
 Data_aggr<-Data_aggr[order(Data_aggr$subject,Data_aggr$activity),]
 write.table(Data_aggr, file = "tidydata.txt",row.name=FALSE)
