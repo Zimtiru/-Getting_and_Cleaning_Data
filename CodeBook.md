@@ -18,19 +18,16 @@ Merges the training and test sets to create one data set:
 
 Reads features.txt and extracts only the measurements on the mean and standard deviation for each measurement. 
 The result is a 10299x66 data frame, because only 66 out of 561 attributes are measurements on the mean and standard deviation. 
-All measurements appear to be floating point numbers in the range (-1, 1).
 
 
-The script labels the data set with descriptive names and merges the 
-10299x66 data frame containing features with 10299x1 data frames containing 
-activity labels and subject IDs. The result saved as mergedcleandata.txt, 
-a 10299x68 data frame having subject IDs and activity names in the first and 
+The script labels the data set with descriptive names and merges the10299x66 data frame containing 
+features with 10299x1 data frames containing activity labels and subject IDs. The result saved as 
+mergedcleandata.txt, a 10299x68 data frame having subject IDs and activity names in the first and 
 second column respectively.
 
-Finally, the script creates a new data set called tidy data set with the mean
-of each measurement for each activity and subject. Then the output saved as  
-tidydata.txt with a data fram of 180x68. The first and the second column contains 
-subject IDs and activity names (see below). From 3 to 68(total of 66) columns, the averages were 
+Finally, the script creates a new data set called tidy data set with the mean of each measurement for each 
+activity and subject. Then the output saved as tidydata.txt with a data fram of 180x68. The first and the 
+second column contains subject IDs and activity names (see below). From 3 to 68(total of 66) columns, the averages were 
 taken for each attribute.In general there are 30 subjects, 6 activities and 180 rows with averages in the data set.
 
 
