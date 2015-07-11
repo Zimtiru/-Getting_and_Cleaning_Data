@@ -1,9 +1,11 @@
 library(plyr);
+setwd("/Users/anteneh/Documents/COURSERA/Gettingandcleaningdata/Project_trial/data1/UCI HAR Dataset")
 # Q.1. Merges the training and the test sets to create one data set.##########
 
 #Read the Fearures files
 XTrain<- read.table("train/X_train.txt", header = FALSE)
 XTest <- read.table("test/X_test.txt", header = FALSE)
+
 
 #Read the Subject files
 SubTrain<- read.table("train/subject_train.txt", header = FALSE)
@@ -16,7 +18,7 @@ YTest <- read.table("test/y_test.txt",header = FALSE)
 #Concatenate the tables by rows
 XTrTe <- rbind(XTrain, XTest)
 Subj <- rbind(SubTrain, SubTest)
-YTrTe <- rbind(XTrain, XTest)
+YTrTe <- rbind(YTrain, YTest)
 
 # Set the names Subj and YtrTe to subject and activity, respectively.
 names(Subj)<-c("subject")
@@ -26,8 +28,9 @@ names(XTrTe)<- XTrTeNames$V2
 
 #Merge columns to get the data frame Data for all data
 
-CombinebyCol <- cbind(Subj, YTrTe)
-Data <- cbind(XTrTe, CombinebyCol)
+#CombinebyCol <- cbind(Subj, YTrTe)
+Data <- cbind(Subj, YTrTe, XTrTe)
+write.table(Data, "mergedcleandata.txt")
 
 # Q.2. Extracts only the measurements on the mean and standard deviation for each measurement.
 
@@ -35,11 +38,13 @@ subdataXTrTeNames<-XTrTeNames$V2[grep("mean\\(\\)|std\\(\\)", XTrTeNames$V2)]
 selectedNames<-c(as.character(subdataXTrTeNames), "subject", "activity" )
 Data<-subset(Data,select=selectedNames)
 
+
 # 3. Uses descriptive activity names to name the activities in the data set.
 
 activityLabels <- read.table("activity_labels.txt",header = FALSE)
 
 #4. Appropriately labels the data set with descriptive variable names. 
+
 # Check the names using "names(Data)" command before(labelled by descriptive names) and after
 #(descriptive variables names) the following code
 # prefix t is replaced by time
@@ -56,7 +61,11 @@ names(Data)<-gsub("Gyro", "Gyroscope", names(Data))
 names(Data)<-gsub("Mag", "Magnitude", names(Data))
 names(Data)<-gsub("BodyBody", "Body", names(Data))
 
+#After the above correction has been made
+write.table(Data, "merged_clean_data.txt")
+
 #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 Data_aggr<-aggregate(. ~subject + activity, Data, mean)
 Data_aggr<-Data_aggr[order(Data_aggr$subject,Data_aggr$activity),]
 write.table(Data_aggr, file = "tidydata.txt",row.name=FALSE)
+
