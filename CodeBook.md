@@ -6,7 +6,7 @@ Original description:
 
  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The attached R script (analysis.R) performs the following to clean up the data:
+The attached R script (run_Aanalysis.R) performs the following to clean up the data:
       
 Merges the training and test sets to create one data set: 
 
