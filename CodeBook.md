@@ -9,6 +9,7 @@ Original description:
 The attached R script (analysis.R) performs the following to clean up the data:
       
 Merges the training and test sets to create one data set: 
+
       -train/X_train.txt and test/X_test.txt(XTrTe), result in a 10299x561 data frame (Number of Instances: 10299 and Number of Attributes: 561), )
        
       -train/subject_train.txt and test/subject_test.txt(Subj), result in a 10299x1 data frame with subject IDs 
