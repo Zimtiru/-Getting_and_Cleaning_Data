@@ -2,7 +2,7 @@
 
 Downlad the data for the project from  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-setwd("/Users/anteneh/Documents/COURSERA/Gettingandcleaningdata/Project/CHECKPROJECT/UCI_HAR_Dataset")
+setwd("/Users/anteneh/Documents/COURSERA/Gettingandcleaningdata/Project_trial/data/UCI HAR Dataset")
 
 filedownloaded <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
