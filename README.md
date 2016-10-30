@@ -1,6 +1,6 @@
 <h4> Getting and Cleaning Data course project</h4>
 
-This is the project for the Getting and Cleaning Data course from Coursera. The R script run_analysis.R perform the following:
+This is the project for "Getting and Cleaning Data" course from Coursera. The R script run_analysis.R perform the following:
 
 -Download the dataset in the working directory
 
